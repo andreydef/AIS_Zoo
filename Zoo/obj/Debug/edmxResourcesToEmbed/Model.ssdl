@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище ZooModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Animal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Number" Type="int" />
+    <Property Name="Nazva" Type="varchar" MaxLength="25" />
+    <Property Name="Alias" Type="varchar" MaxLength="10" />
+    <Property Name="Age" Type="int" />
+    <Property Name="Country" Type="varchar" MaxLength="25" />
+    <Property Name="Photo" Type="image" />
+  </EntityType>
+  <EntityType Name="Household">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id_animal" Type="int" Nullable="false" />
+    <Property Name="Adress" Type="varchar" MaxLength="35" />
+    <Property Name="Phone" Type="varchar" MaxLength="15" />
+    <Property Name="Email" Type="varchar" MaxLength="35" />
+    <Property Name="Name_household" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Order_tickets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date_birth" Type="date" />
+    <Property Name="Date_order_ticket" Type="date" />
+    <Property Name="Date_visiting" Type="date" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Count" Type="int" />
+    <Property Name="Household" Type="nvarchar" MaxLength="50" />
+    <Property Name="Animal" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__Household__Id_an__2D27B809">
+    <End Role="Animal" Type="Self.Animal" Multiplicity="1" />
+    <End Role="Household" Type="Self.Household" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Animal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Household">
+        <PropertyRef Name="Id_animal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ZooModelContainer">
+    <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Household" EntityType="Self.Household" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order_tickets" EntityType="Self.Order_tickets" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Household__Id_an__2D27B809" Association="Self.FK__Household__Id_an__2D27B809">
+      <End Role="Animal" EntitySet="Animal" />
+      <End Role="Household" EntitySet="Household" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

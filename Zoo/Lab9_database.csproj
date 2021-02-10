@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34B59DC1-88B9-42B2-8A74-5A0A6C436911}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Lab9_database</RootNamespace>
+    <AssemblyName>Lab9_database</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\formAnimals_admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\formAnimals_admin.Designer.cs">
+      <DependentUpon>formAnimals_admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\formHousehold_admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\formHousehold_admin.Designer.cs">
+      <DependentUpon>formHousehold_admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\formOrderTickets_admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\formOrderTickets_admin.Designer.cs">
+      <DependentUpon>formOrderTickets_admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Animal.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Household.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderTicketsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderTicketsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Order_tickets.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User\formAnimals_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\formAnimals_user.Designer.cs">
+      <DependentUpon>formAnimals_user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\formHousehold_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\formHousehold_user.Designer.cs">
+      <DependentUpon>formHousehold_user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\formOrderTicket_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\formOrderTicket_user.Designer.cs">
+      <DependentUpon>formOrderTicket_user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ZooDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZooDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Zoo_main_admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\Zoo_main_admin.Designer.cs">
+      <DependentUpon>Zoo_main_admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User\Zoo_main_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\Zoo_main_user.Designer.cs">
+      <DependentUpon>Zoo_main_user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formRegister.Designer.cs">
+      <DependentUpon>formRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formLogin.Designer.cs">
+      <DependentUpon>formLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users.cs" />
+    <Compile Include="ZooDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ZooDataSet1.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin\formAnimals_admin.resx">
+      <DependentUpon>formAnimals_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\formHousehold_admin.resx">
+      <DependentUpon>formHousehold_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\formOrderTickets_admin.resx">
+      <DependentUpon>formOrderTickets_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\formAnimals_user.resx">
+      <DependentUpon>formAnimals_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\formHousehold_user.resx">
+      <DependentUpon>formHousehold_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\Zoo_main_admin.resx">
+      <DependentUpon>Zoo_main_admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\formOrderTicket_user.resx">
+      <DependentUpon>formOrderTicket_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\Zoo_main_user.resx">
+      <DependentUpon>Zoo_main_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formRegister.resx">
+      <DependentUpon>formRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formLogin.resx">
+      <DependentUpon>formLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EntityDeploy Include="Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </None>
+    <None Include="OrderTicketsDataSet.xsc">
+      <DependentUpon>OrderTicketsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="OrderTicketsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OrderTicketsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OrderTicketsDataSet.xss">
+      <DependentUpon>OrderTicketsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Lab9_database.ZooDataSet2TableAdapters.HouseholdTableAdapter.datasource" />
+    <None Include="Properties\DataSources\Lab9_database.ZooDataSetTableAdapters.HouseholdTableAdapter.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="ZooDataSet.xsc">
+      <DependentUpon>ZooDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ZooDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ZooDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ZooDataSet.xss">
+      <DependentUpon>ZooDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ZooDataSet1.xsc">
+      <DependentUpon>ZooDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ZooDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ZooDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ZooDataSet1.xss">
+      <DependentUpon>ZooDataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

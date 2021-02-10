@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ZooModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Animal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Number" Type="Int32" />
+    <Property Name="Nazva" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Alias" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Country" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Household" Relationship="Self.FK__Household__Id_an__2D27B809" FromRole="Animal" ToRole="Household" />
+  </EntityType>
+  <EntityType Name="Household">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Id_animal" Type="Int32" Nullable="false" />
+    <Property Name="Adress" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+    <Property Name="Name_household" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Animal" Relationship="Self.FK__Household__Id_an__2D27B809" FromRole="Household" ToRole="Animal" />
+  </EntityType>
+  <EntityType Name="Order_tickets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date_birth" Type="DateTime" Precision="0" />
+    <Property Name="Date_order_ticket" Type="DateTime" Precision="0" />
+    <Property Name="Date_visiting" Type="DateTime" Precision="0" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Count" Type="Int32" />
+    <Property Name="Household" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Animal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__Household__Id_an__2D27B809">
+    <End Role="Animal" Type="Self.Animal" Multiplicity="1" />
+    <End Role="Household" Type="Self.Household" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Animal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Household">
+        <PropertyRef Name="Id_animal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ZooEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Animal" EntityType="Self.Animal" />
+    <EntitySet Name="Household" EntityType="Self.Household" />
+    <EntitySet Name="Order_tickets" EntityType="Self.Order_tickets" />
+    <AssociationSet Name="FK__Household__Id_an__2D27B809" Association="Self.FK__Household__Id_an__2D27B809">
+      <End Role="Animal" EntitySet="Animal" />
+      <End Role="Household" EntitySet="Household" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
